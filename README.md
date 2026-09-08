@@ -1,16 +1,19 @@
-# React + Vite
+# Aura SCRUM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web educativo para la materia **Sistemas de Gestión de la Calidad del Software**. Cubre fundamentos de calidad, estándares (ISO 9126/25000) y técnicas de aseguramiento de calidad de software, entre otras secciones de contenido.
 
-Currently, two official plugins are available:
+## Equipo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Scrum Master: Ceferino Fares
+- Programador: Fausto Poggi
+- Diseñador: Robert Weisser
+- Marketing: Ezequiel Malpu
+- Testing: Marco Abello
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+HTML, CSS, JS, Node.js, React, Vite
 
-## Expanding the ESLint configuration
+## Cómo correrlo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Primero descargá el proyecto: podés usar el botón "Download" de GitHub, o clonarlo con `git clone` en la carpeta que quieras. Necesitás tener instalado Node.js en tu compu (ya viene con npm incluido). Una vez adentro de la carpeta del proyecto, corré `npm install` para bajar las dependencias, y después `npm run dev` para levantar el servidor y ver la página funcionando en el navegador.
