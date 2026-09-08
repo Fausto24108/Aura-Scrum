@@ -7,7 +7,7 @@ Sitio web educativo para la materia **Sistemas de Gestión de la Calidad del Sof
 - Scrum Master: Ceferino Fares
 - Programador: Fausto Poggi
 - Diseñador: Robert Weisser
-- Marketing: Ezequiel Malpu
+- Marketing/Generalista: Ezequiel Malpu
 - Testing: Marco Abello
 
 ## Tecnologías
