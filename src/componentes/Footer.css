@@ -1,0 +1,30 @@
+.footer {
+  background-color: var(--bg-card);
+  border-top: 3px solid var(--cyan-strong);
+  color: var(--cyan-dark);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 -4px 10px rgba(0, 140, 180, 0.05);
+}
+
+.footer-content p {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--cyan-strong);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--cyan-vivid);
+}

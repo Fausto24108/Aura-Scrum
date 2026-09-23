@@ -1,0 +1,173 @@
+/* HEADER BASE */
+.navbar-header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #e0f2fe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.08);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.navbar-logo-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.navbar-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-title {
+  color: #005f73;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.navbar-subtitle {
+  color: #008cb4;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* BOTÓN HAMBURGUESA */
+.hamburger-btn {
+  background-color: #00a8e8;
+  border: none;
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: #008cb4;
+}
+
+.hamburger-btn .bar {
+  width: 22px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-btn.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* DESPLEGABLE HAMBURGUESA (GAMA BLANCOS Y CELESTES) */
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 1.5rem;
+  background-color: #ffffff;
+  border: 2px solid #00a8e8;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 140, 180, 0.2);
+  display: none;
+  width: 280px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.nav-menu.show {
+  display: block;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* ENLACES DIRECTOS Y BOTONES DESPLEGABLES */
+.nav-link-direct,
+.dropdown-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #005f73;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link-direct:hover,
+.dropdown-btn:hover {
+  background-color: #e0f2fe;
+  color: #00a8e8;
+}
+
+.dropdown-btn.highlight {
+  color: #00a8e8;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+}
+
+/* SUBMENÚS DESPLEGABLES */
+.submenu {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0.2rem 0;
+  display: none;
+  border-left: 2px solid #00a8e8;
+}
+
+.submenu.active {
+  display: block;
+}
+
+.submenu a {
+  display: block;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.submenu a:hover {
+  color: #00a8e8;
+  background-color: #f0f9ff;
+}

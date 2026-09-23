@@ -26,3 +26,41 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+:root {
+
+  --bg-primary: #f0f8ff;         
+  --bg-card: #ffffff;            
+  --cyan-strong: #008cb4;        
+  --cyan-vivid: #00a8e8;         
+  --cyan-dark: #005f73;          
+  --text-dark: #1e293b;          
+  --text-light: #ffffff;         
+  --border-light: #d0e8f2;      
+  --shadow: 0 4px 15px rgba(0, 140, 180, 0.15);
+  
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}

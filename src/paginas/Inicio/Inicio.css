@@ -1,0 +1,179 @@
+.inicio {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* HERO PRINCIPAL */
+.hero {
+  background: linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%);
+  border: 3px solid #00a8e8;
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 168, 232, 0.12);
+  margin-bottom: 2.5rem;
+}
+
+.hero-text {
+  flex: 1.2;
+}
+
+.hero-text h1 {
+  color: #005f73;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: #00a8e8;
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: #008cb4;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img-src {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* SECCIONES DESTACADAS */
+.seccion-destacada {
+  background-color: #ffffff;
+  border-left: 6px solid #00a8e8;
+  border-radius: 12px;
+  padding: 1.8rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 140, 180, 0.08);
+}
+
+.seccion-destacada.borde-completo {
+  border: 2px solid #00a8e8;
+  border-left: 6px solid #00a8e8;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.seccion-destacada h2 {
+  color: #005f73;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.seccion-destacada p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* TITULOS DE BLOQUES DE TARJETAS */
+.titulo-bloque {
+  color: #005f73;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 2rem 0 1.2rem 0;
+  border-bottom: 3px solid #e0f2fe;
+  padding-bottom: 0.4rem;
+}
+
+/* GRILLA DE TARJETAS */
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* TARJETA INDIVIDUAL (TIPO MARCO IMAGEN) */
+.tarjeta {
+  background-color: #ffffff;
+  border: 2px solid #e0f2fe;
+  border-top: 5px solid #00a8e8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 140, 180, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 168, 232, 0.18);
+  border-color: #00a8e8;
+}
+
+.tarjeta.resaltada {
+  border: 2px solid #00a8e8;
+  border-top: 5px solid #008cb4;
+  background-color: #f0f9ff;
+}
+
+.tarjeta h3 {
+  color: #005f73;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* BOTÓN DE ACCESO */
+.btn-card {
+  display: block;
+  background-color: #52a5e4;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: #008cb4;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
