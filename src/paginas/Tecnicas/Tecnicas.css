@@ -1,44 +1,107 @@
-.tecnicas-container {
+.tecnicas {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #334155;
 }
 
-.tecnicas-title {
-  color: var(--cyan-dark);
-  font-size: 2rem;
-  text-align: center;
+.tecnicas h1 {
+  color: #005f73;
+  font-size: 2.2rem;
+  border-bottom: 4px solid #00a8e8;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tecnicas h2 {
+  color: #005f73;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Niveles de Pruebas (Grid Layout) */
+.niveles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.tecnicas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.tecnica-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-top: 4px solid var(--cyan-vivid);
-  border-radius: 8px;
+.nivel-item {
+  background: #ffffff;
+  border: 2px solid #bae6fd;
+  border-top: 5px solid #00a8e8;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0, 140, 180, 0.06);
 }
 
-.tecnica-card h4 {
-  color: var(--cyan-strong);
-  font-size: 1.2rem;
+.nivel-item h3 {
+  color: #005f73;
+  margin-top: 0;
   margin-bottom: 0.8rem;
 }
 
-.badge-tag {
-  display: inline-block;
-  background-color: #e0f2fe;
-  color: var(--cyan-strong);
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
+/* Tipos de Pruebas (Interactivas) */
+.tipos-pruebas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.prueba-item {
+  background: #ffffff;
+  border: 2px solid #00a8e8;
   border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.08);
+}
+
+.prueba-item h3 {
+  color: #005f73;
+  margin-top: 0;
+}
+
+.prueba-item button {
+  background-color: #00a8e8;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.prueba-item button:hover {
+  background-color: #005f73;
+}
+
+.prueba-detalles {
   margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f0f9ff;
+  border-radius: 8px;
+  border-left: 4px solid #00a8e8;
+}
+
+.prueba-detalles h4 {
+  color: #005f73;
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+/* Técnicas */
+.tecnica-item {
+  background: #ffffff;
+  border-bottom: 1px solid #e0f2fe;
+  padding: 1rem 0;
+}
+
+.tecnica-item h3 {
+  color: #005f73;
+  margin: 0 0 0.4rem 0;
 }

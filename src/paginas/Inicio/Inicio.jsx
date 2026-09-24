@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Inicio.css";
+// Importación corregida con la ruta de tu proyecto
+import ilustracionKanban from "../../assets/imagenes/kanban-illustration.png";
 
 export default function Inicio() {
   return (
@@ -19,8 +21,12 @@ export default function Inicio() {
           </Link>
         </div>
         <div className="hero-image">
-          {/* Carga la imagen desde public/hero-scrum.png */}
-          <img src="/hero-scrum.png" alt="Ilustración Scrum" className="hero-img-src" />
+          {/* Se usa la variable importada de la imagen */}
+          <img 
+            src={ilustracionKanban} 
+            alt="Ilustración Scrum" 
+            className="hero-img-src" 
+          />
         </div>
       </section>
 

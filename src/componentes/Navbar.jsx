@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logoAura from "../assets/imagenes/logo.png";
+// 1. Importamos el logo correctamente desde tu carpeta assets
+// NOTA: Si tu archivo se llama 'logo.png' y está directamente en 'assets', usa: '../../assets/logo.png'
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -20,8 +23,9 @@ export default function Navbar() {
     <header className="navbar-header">
       {/* Brand: Logo Espiral + Título */}
       <Link to="/" className="navbar-brand" onClick={cerrarTodo}>
+        {/* 2. Usamos la variable importada en lugar del texto plano */}
         <img
-          src="/src/assets/logo.png"
+          src={logoAura}
           alt="A.U.R.A. SCRUM Logo"
           className="navbar-logo-img"
         />

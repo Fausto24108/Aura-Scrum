@@ -2,14 +2,16 @@ import { useState } from "react";
 import "./Tecnicas.css";
 
 function Tecnicas() {
+  // Estado para controlar qué tarjeta interactiva de tipo está "dada vuelta" (Requerimiento US-03)
   const [pruebaActiva, setPruebaActiva] = useState(null);
 
-  const mostrarPrueba = (prueba) => {
+  const togglePrueba = (prueba) => {
+    // Si la prueba ya estaba activa, se oculta. Sino, se muestra esa prueba.
     setPruebaActiva(pruebaActiva === prueba ? null : prueba);
   };
 
   return (
-    <main>
+    <main className="tecnicas">
       <h1>Técnicas de Aseguramiento de la Calidad</h1>
 
       <section>
@@ -22,6 +24,7 @@ function Tecnicas() {
         </p>
       </section>
 
+      {/* Niveles structured using Grid (Requerimiento US-03) */}
       <section>
         <h2>Niveles de pruebas</h2>
         <p>
@@ -30,8 +33,8 @@ function Tecnicas() {
           distintos tipos de problemas durante el desarrollo.
         </p>
 
-        <div className="niveles-pruebas">
-          <article>
+        <div className="niveles-grid">
+          <article className="nivel-item">
             <h3>Pruebas unitarias</h3>
             <p>
               Se enfocan en comprobar unidades pequeñas del software, como
@@ -41,7 +44,7 @@ function Tecnicas() {
             </p>
           </article>
 
-          <article>
+          <article className="nivel-item">
             <h3>Pruebas de integración</h3>
             <p>
               Comprueban que diferentes componentes o módulos del software
@@ -50,7 +53,7 @@ function Tecnicas() {
             </p>
           </article>
 
-          <article>
+          <article className="nivel-item">
             <h3>Pruebas de sistema</h3>
             <p>
               Evalúan el sistema completo para comprobar que todas sus partes
@@ -61,6 +64,7 @@ function Tecnicas() {
         </div>
       </section>
 
+      {/* Tipos interactivos (Requerimiento US-03) */}
       <section>
         <h2>Tipos de pruebas</h2>
         <p>
@@ -69,27 +73,27 @@ function Tecnicas() {
           importantes son las pruebas de caja negra y caja blanca.
         </p>
 
-        <div className="tarjetas-pruebas">
-          <article className="tarjeta-prueba">
+        <div className="tipos-pruebas">
+          {/* Caja Negra */}
+          <article className="prueba-item">
             <h3>Pruebas de caja negra</h3>
             <p>
               Se evalúa el comportamiento del software sin analizar su código
               interno. Se introducen datos o acciones y se comprueba si la
               respuesta obtenida es la esperada.
             </p>
-            <button onClick={() => mostrarPrueba("negra")}>
+            <button onClick={() => togglePrueba("negra")}>
               {pruebaActiva === "negra" ? "Ocultar detalles" : "Ver detalles"}
             </button>
-
+            {/* Detalles que aparecen al hacer clic */}
             {pruebaActiva === "negra" && (
-              <div className="detalles-prueba">
+              <div className="prueba-detalles">
                 <h4>¿Qué se comprueba?</h4>
                 <p>
                   Se verifica que las entradas produzcan los resultados
                   esperados y que las funciones disponibles para el usuario
                   respondan correctamente.
                 </p>
-
                 <h4>Ejemplo</h4>
                 <p>
                   Probar un formulario ingresando diferentes datos y comprobar
@@ -100,26 +104,26 @@ function Tecnicas() {
             )}
           </article>
 
-          <article className="tarjeta-prueba">
+          {/* Caja Blanca */}
+          <article className="prueba-item">
             <h3>Pruebas de caja blanca</h3>
             <p>
               Analizan el funcionamiento interno del software y tienen en
               cuenta su código, estructura y lógica para comprobar que las
               diferentes partes del programa se ejecuten correctamente.
             </p>
-            <button onClick={() => mostrarPrueba("blanca")}>
+            <button onClick={() => togglePrueba("blanca")}>
               {pruebaActiva === "blanca" ? "Ocultar detalles" : "Ver detalles"}
             </button>
-
+            {/* Detalles que aparecen al hacer clic */}
             {pruebaActiva === "blanca" && (
-              <div className="detalles-prueba">
+              <div className="prueba-detalles">
                 <h4>¿Qué se comprueba?</h4>
                 <p>
                   Se analizan caminos de ejecución, condiciones y estructuras
                   del código para detectar errores en la lógica interna del
                   programa.
                 </p>
-
                 <h4>Ejemplo</h4>
                 <p>
                   Comprobar que una función ejecute correctamente todas sus
@@ -132,10 +136,11 @@ function Tecnicas() {
         </div>
       </section>
 
+      {/* Técnicas */}
       <section>
         <h2>Técnicas de aseguramiento de la calidad</h2>
 
-        <article>
+        <article className="tecnica-item">
           <h3>Revisión de código</h3>
           <p>
             Consiste en analizar el código desarrollado para detectar errores,
@@ -144,7 +149,7 @@ function Tecnicas() {
           </p>
         </article>
 
-        <article>
+        <article className="tecnica-item">
           <h3>Pruebas automatizadas</h3>
           <p>
             Permiten ejecutar pruebas mediante herramientas y programas que
@@ -154,7 +159,7 @@ function Tecnicas() {
           </p>
         </article>
 
-        <article>
+        <article className="tecnica-item">
           <h3>Pruebas manuales</h3>
           <p>
             Son realizadas directamente por una persona que interactúa con el
@@ -163,7 +168,7 @@ function Tecnicas() {
           </p>
         </article>
 
-        <article>
+        <article className="tecnica-item">
           <h3>Detección y seguimiento de errores</h3>
           <p>
             Consiste en registrar los errores encontrados, analizar sus causas,

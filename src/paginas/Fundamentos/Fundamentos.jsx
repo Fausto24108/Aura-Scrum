@@ -5,7 +5,7 @@ function Fundamentos() {
   const [normaActiva, setNormaActiva] = useState("iso9126");
 
   return (
-    <main>
+    <main className="fundamentos">
       <h1>Fundamentos de Calidad</h1>
 
       <section>
@@ -19,10 +19,11 @@ function Fundamentos() {
         </p>
       </section>
 
+      {/* Conceptos clave structured (Requerimiento US-02) */}
       <section>
         <h2>Conceptos clave de calidad</h2>
 
-        <article>
+        <article className="concepto-item">
           <h3>Calidad del software</h3>
           <p>
             Es el conjunto de características que permiten determinar si un
@@ -31,7 +32,7 @@ function Fundamentos() {
           </p>
         </article>
 
-        <article>
+        <article className="concepto-item">
           <h3>Aseguramiento de la calidad</h3>
           <p>
             Consiste en aplicar actividades y procedimientos destinados a
@@ -40,7 +41,7 @@ function Fundamentos() {
           </p>
         </article>
 
-        <article>
+        <article className="concepto-item">
           <h3>Control de calidad</h3>
           <p>
             Comprende las actividades realizadas para detectar errores,
@@ -49,7 +50,7 @@ function Fundamentos() {
           </p>
         </article>
 
-        <article>
+        <article className="concepto-item">
           <h3>Evaluación de la calidad</h3>
           <p>
             Es el proceso de analizar y medir las características de un
@@ -58,7 +59,7 @@ function Fundamentos() {
           </p>
         </article>
 
-        <article>
+        <article className="concepto-item">
           <h3>Mejora continua</h3>
           <p>
             Consiste en revisar y mejorar de manera constante los procesos y
@@ -68,9 +69,9 @@ function Fundamentos() {
         </article>
       </section>
 
+      {/* Métricas structured */}
       <section>
         <h2>Métricas de software</h2>
-
         <p>
           Las métricas de software son medidas que permiten obtener información
           cuantificable sobre diferentes características de un producto, un
@@ -101,6 +102,7 @@ function Fundamentos() {
         </p>
 
         <h3>Ejemplos de métricas</h3>
+        {/* Lista informativa legible */}
         <ul>
           <li>Cantidad de defectos encontrados.</li>
           <li>Tiempo de respuesta de una aplicación.</li>
@@ -110,18 +112,19 @@ function Fundamentos() {
         </ul>
       </section>
 
+      {/* Estándares con TABS (Requerimiento US-02) */}
       <section>
         <h2>Estándares y modelos relacionados con la calidad</h2>
 
-        <div className="tabs">
-          <button className={normaActiva === "iso9126" ? "tab-activa" : ""} onClick={() => setNormaActiva("iso9126")}>ISO 9126</button>
-          <button className={normaActiva === "iso25000" ? "tab-activa" : ""} onClick={() => setNormaActiva("iso25000")}>ISO 25000</button>
-          <button className={normaActiva === "iso9001" ? "tab-activa" : ""} onClick={() => setNormaActiva("iso9001")}>ISO 9001</button>
-          <button className={normaActiva === "iso12207" ? "tab-activa" : ""} onClick={() => setNormaActiva("iso12207")}>ISO 12207</button>
-          <button className={normaActiva === "iso15504" ? "tab-activa" : ""} onClick={() => setNormaActiva("iso15504")}>ISO 15504 / SPICE</button>
+        <div className="tab-buttons">
+          <button onClick={() => setNormaActiva("iso9126")}>ISO 9126</button>
+          <button onClick={() => setNormaActiva("iso25000")}>ISO 25000</button>
+          <button onClick={() => setNormaActiva("iso9001")}>ISO 9001</button>
+          <button onClick={() => setNormaActiva("iso12207")}>ISO 12207</button>
+          <button onClick={() => setNormaActiva("iso15504")}>ISO 15504 / SPICE</button>
         </div>
 
-        <div className="contenido-tab">
+        <div className="tab-content">
           {normaActiva === "iso9126" && (
             <article>
               <h3>ISO 9126</h3>
