@@ -1,0 +1,158 @@
+.comparador-page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  color: var(--text-body);
+}
+
+.comparador-page h1,
+.comparador-page h2 {
+  color: var(--cyan-dark);
+}
+
+.comparador-page h1 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid var(--cyan-vivid);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.comparador-page > p:not(.comparador-aviso) {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+}
+
+.comparador-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 1.25rem;
+  border: 2px solid var(--border-blue);
+  border-radius: 14px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.comparador-opciones legend {
+  padding: 0 0.45rem;
+  color: var(--cyan-dark);
+  font-weight: 800;
+}
+
+.comparador-opcion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  background: #f0f9ff;
+  color: var(--text-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.comparador-opcion:hover {
+  border-color: var(--cyan-vivid);
+  background: #e0f2fe;
+}
+
+.comparador-opcion input {
+  accent-color: var(--cyan-strong);
+}
+
+.comparador-page > button,
+.comparador-page button {
+  border: 0;
+  border-radius: 9px;
+  background: var(--cyan-vivid);
+  color: var(--text-light);
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.comparador-page > button {
+  padding: 0.7rem 1rem;
+}
+
+.comparador-page > button:hover:not(:disabled) {
+  background: var(--cyan-strong);
+  transform: translateY(-1px);
+}
+
+.comparador-page > button:disabled {
+  opacity: 0.55;
+}
+
+.comparador-aviso {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid var(--cyan-vivid);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--cyan-dark) !important;
+}
+
+.comparador-tabla-contenedor {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-blue);
+  border-radius: 12px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.comparador-tabla {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparador-tabla th,
+.comparador-tabla td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+.comparador-tabla thead th {
+  background: #e0f2fe;
+  color: var(--cyan-dark);
+  font-size: 0.95rem;
+}
+
+.comparador-tabla tbody th {
+  width: 190px;
+  background: #f5fbff;
+  color: var(--cyan-dark);
+}
+
+.comparador-tabla tbody tr:last-child th,
+.comparador-tabla tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.comparador-tabla tbody tr:hover td {
+  background: #f7fcff;
+}
+
+@media (max-width: 600px) {
+  .comparador-page {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .comparador-opciones {
+    padding: 1rem;
+  }
+
+  .comparador-opcion {
+    flex: 1 1 100%;
+    border-radius: 9px;
+  }
+}

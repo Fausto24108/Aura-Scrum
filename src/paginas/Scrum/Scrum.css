@@ -1,0 +1,173 @@
+.scrum-page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  color: var(--text-body);
+}
+
+.scrum-page > h1 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid var(--cyan-vivid);
+  color: var(--cyan-dark);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.scrum-page > p {
+  margin: 0 0 1.3rem;
+  color: var(--text-muted);
+}
+
+.scrum-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+  margin: 1.5rem 0;
+}
+
+.scrum-etapa {
+  min-height: 58px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-blue);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--cyan-dark);
+  font-weight: 700;
+  text-align: left;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.scrum-etapa:hover {
+  border-color: var(--cyan-vivid);
+  background: #f0f9ff;
+}
+
+.scrum-etapa.activa {
+  border-color: var(--cyan-vivid);
+  background: var(--cyan-vivid);
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.2);
+}
+
+.scrum-detalle,
+.scrum-roles {
+  margin: 0 0 1.5rem;
+  padding: clamp(1.2rem, 3vw, 1.7rem);
+  border: 1px solid var(--border-blue);
+  border-radius: 14px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.scrum-detalle h2,
+.scrum-roles h2 {
+  margin: 0 0 1rem;
+  color: var(--cyan-dark);
+  font-size: 1.45rem;
+}
+
+.scrum-detalle > p {
+  margin: 0.5rem 0;
+  color: var(--text-body);
+}
+
+.scrum-detalle > p strong {
+  color: var(--cyan-dark);
+}
+
+.scrum-detalle ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 1.3rem;
+  padding-left: 1.3rem;
+  line-height: 1.6;
+}
+
+.scrum-detalle li::marker {
+  color: var(--cyan-strong);
+}
+
+.scrum-navegacion {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.scrum-navegacion button,
+.scrum-rol button {
+  min-height: 42px;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--cyan-vivid);
+  color: var(--text-light);
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.scrum-navegacion button:hover:not(:disabled),
+.scrum-rol button:hover {
+  background: var(--cyan-strong);
+  transform: translateY(-1px);
+}
+
+.scrum-navegacion button:disabled {
+  opacity: 0.5;
+}
+
+.scrum-roles {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.scrum-roles h2 {
+  margin-bottom: 0.2rem;
+}
+
+.scrum-rol {
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 9px;
+  background: #f8fcff;
+}
+
+.scrum-rol button {
+  width: 100%;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cyan-dark);
+  text-align: left;
+}
+
+.scrum-rol button:hover {
+  background: #e0f2fe;
+  color: var(--cyan-dark);
+}
+
+.scrum-rol p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .scrum-page {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .scrum-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .scrum-etapa {
+    min-height: 48px;
+  }
+
+  .scrum-navegacion button {
+    flex: 1;
+  }
+}

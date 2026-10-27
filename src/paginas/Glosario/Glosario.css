@@ -1,0 +1,126 @@
+.glosario-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  color: var(--text-body);
+}
+
+.glosario-page h1 {
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid var(--cyan-vivid);
+  color: var(--cyan-dark);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.glosario-page > label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--cyan-dark);
+  font-weight: 700;
+}
+
+.glosario-page > input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #b8d8e6;
+  border-radius: 9px;
+  background: var(--bg-card);
+  color: var(--text-dark);
+  box-shadow: 0 2px 8px rgba(0, 140, 180, 0.05);
+}
+
+.glosario-page > input:focus {
+  border-color: var(--cyan-vivid);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.16);
+}
+
+.glosario-indice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0.7rem;
+}
+
+.letra {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--cyan-dark);
+  font-weight: 800;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.letra:hover:not(:disabled),
+.letra.activa {
+  border-color: var(--cyan-vivid);
+  background: var(--cyan-vivid);
+  color: var(--text-light);
+}
+
+.letra:disabled {
+  border-color: #e5eef2;
+  background: #f3f7f9;
+  color: #a0b3bd;
+}
+
+.glosario-contador {
+  margin: 0.5rem 0 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.glosario-lista {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.glosario-item {
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--cyan-vivid);
+  border-radius: 10px;
+  background: var(--bg-card);
+  box-shadow: 0 3px 10px rgba(0, 140, 180, 0.05);
+}
+
+.glosario-item dt {
+  margin-bottom: 0.25rem;
+  color: var(--cyan-dark);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.glosario-item dd {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.glosario-vacio {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--cyan-dark);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .glosario-page {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .letra {
+    width: 35px;
+    height: 35px;
+  }
+}

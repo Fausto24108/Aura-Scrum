@@ -128,11 +128,41 @@ function Fundamentos() {
         <h2>Estándares y modelos relacionados con la calidad</h2>
 
         <div className="tab-buttons">
-          <button onClick={() => setNormaActiva("iso9126")}>ISO 9126</button>
-          <button onClick={() => setNormaActiva("iso25000")}>ISO 25000</button>
-          <button onClick={() => setNormaActiva("iso9001")}>ISO 9001</button>
-          <button onClick={() => setNormaActiva("iso12207")}>ISO 12207</button>
-          <button onClick={() => setNormaActiva("iso15504")}>ISO 15504 / SPICE</button>
+          <button
+            className={normaActiva === "iso9126" ? "activa" : ""}
+            aria-pressed={normaActiva === "iso9126"}
+            onClick={() => setNormaActiva("iso9126")}
+          >
+            ISO 9126
+          </button>
+          <button
+            className={normaActiva === "iso25000" ? "activa" : ""}
+            aria-pressed={normaActiva === "iso25000"}
+            onClick={() => setNormaActiva("iso25000")}
+          >
+            ISO 25000
+          </button>
+          <button
+            className={normaActiva === "iso9001" ? "activa" : ""}
+            aria-pressed={normaActiva === "iso9001"}
+            onClick={() => setNormaActiva("iso9001")}
+          >
+            ISO 9001
+          </button>
+          <button
+            className={normaActiva === "iso12207" ? "activa" : ""}
+            aria-pressed={normaActiva === "iso12207"}
+            onClick={() => setNormaActiva("iso12207")}
+          >
+            ISO 12207
+          </button>
+          <button
+            className={normaActiva === "iso15504" ? "activa" : ""}
+            aria-pressed={normaActiva === "iso15504"}
+            onClick={() => setNormaActiva("iso15504")}
+          >
+            ISO 15504 / SPICE
+          </button>
         </div>
 
         <div className="tab-content">

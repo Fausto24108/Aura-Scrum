@@ -8,23 +8,8 @@
   box-shadow: 0 -4px 10px rgba(0, 140, 180, 0.05);
 }
 
-.footer-content p {
+.footer p {
+  margin: 0;
   font-weight: 600;
   font-size: 0.95rem;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 0.8rem;
-}
-
-.footer-links a {
-  color: var(--cyan-strong);
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--cyan-vivid);
 }

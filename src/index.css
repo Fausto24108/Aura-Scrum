@@ -1,18 +1,55 @@
-* {
+:root {
+  color-scheme: light;
+  --bg-primary: #f0f8ff;
+  --bg-card: #ffffff;
+  --cyan-strong: #008cb4;
+  --cyan-vivid: #00a8e8;
+  --cyan-dark: #005f73;
+  --text-dark: #1e293b;
+  --text-body: #334155;
+  --text-muted: #475569;
+  --text-light: #ffffff;
+  --border-light: #d0e8f2;
+  --border-blue: #bae6fd;
+  --shadow: 0 4px 15px rgba(0, 140, 180, 0.15);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
+  min-width: 320px;
   scroll-behavior: smooth;
 }
 
 body {
   min-width: 320px;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #05060b;
-  color: #fff;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#root > main,
+#root > .inicio {
+  flex: 1 0 auto;
+}
+
+#root > .footer {
+  margin-top: auto;
 }
 
 button,
@@ -22,45 +59,45 @@ select {
   font: inherit;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-:root {
-
-  --bg-primary: #f0f8ff;         
-  --bg-card: #ffffff;            
-  --cyan-strong: #008cb4;        
-  --cyan-vivid: #00a8e8;         
-  --cyan-dark: #005f73;          
-  --text-dark: #1e293b;          
-  --text-light: #ffffff;         
-  --border-light: #d0e8f2;      
-  --shadow: 0 4px 15px rgba(0, 140, 180, 0.15);
-  
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--font-family);
-  background-color: var(--bg-primary);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 button {
   cursor: pointer;
-  font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cyan-vivid);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--text-dark);
+  background: #bae6fd;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

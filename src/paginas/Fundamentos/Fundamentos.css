@@ -2,94 +2,159 @@
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #334155;
+  color: var(--text-body);
 }
 
 .fundamentos h1 {
-  color: #005f73;
-  font-size: 2.2rem;
-  border-bottom: 4px solid #00a8e8;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 4px solid var(--cyan-vivid);
+  color: var(--cyan-dark);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.fundamentos > section {
+  margin: 0 0 1.5rem;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--cyan-vivid);
+  border-radius: 12px;
+  background: var(--bg-card);
+  box-shadow: 0 4px 13px rgba(0, 140, 180, 0.07);
 }
 
 .fundamentos h2 {
-  color: #005f73;
+  margin: 0 0 0.85rem;
+  color: var(--cyan-dark);
   font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+
+.fundamentos h3 {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--cyan-dark);
+  font-size: 1.12rem;
 }
 
 .fundamentos p {
-  line-height: 1.6;
-  font-size: 1rem;
+  margin: 0 0 0.85rem;
+  color: var(--text-body);
+  line-height: 1.75;
 }
 
-/* Conceptos Clave */
+.fundamentos p:last-child {
+  margin-bottom: 0;
+}
+
 .concepto-item {
-  background: #ffffff;
-  border-left: 5px solid #00a8e8;
-  border-radius: 8px;
-  padding: 1.2rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.08);
-  transition: transform 0.2s ease;
+  margin-top: 0.9rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--cyan-vivid);
+  border-radius: 9px;
+  background: #fbfdff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .concepto-item:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 140, 180, 0.09);
 }
 
 .concepto-item h3 {
-  color: #005f73;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.45rem;
+  color: var(--cyan-dark);
 }
 
 .concepto-item p {
   margin: 0;
 }
 
-/* Pestañas / Tabs de Estándares ISO */
+.fundamentos ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.7rem 0 0;
+  padding-left: 1.3rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+.fundamentos ul li::marker {
+  color: var(--cyan-strong);
+}
+
+/* Espaciado controlado desde la grilla, sin depender de saltos manuales. */
+.fundamentos li br {
+  display: none;
+}
+
 .tab-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
 }
 
 .tab-buttons button {
-  background-color: #f0f9ff;
-  border: 2px solid #bae6fd;
-  color: #005f73;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  min-height: 42px;
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--border-blue);
+  border-radius: 999px;
+  background: #f0f9ff;
+  color: var(--cyan-dark);
+  font-weight: 700;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .tab-buttons button:hover {
-  background-color: #00a8e8;
-  color: #ffffff;
-  border-color: #00a8e8;
+  border-color: var(--cyan-vivid);
+  background: var(--cyan-vivid);
+  color: var(--text-light);
+}
+
+.tab-buttons button.activa {
+  border-color: var(--cyan-strong);
+  background: var(--cyan-strong);
+  color: var(--text-light);
 }
 
 .tab-content {
-  background: #ffffff;
-  border: 2px solid #bae6fd;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 140, 180, 0.06);
+  padding: 1.2rem;
+  border: 2px solid var(--border-blue);
+  border-radius: 11px;
+  background: #f8fcff;
 }
 
 .tab-content h3 {
-  color: #005f73;
   margin-top: 0;
 }
 
 .tab-content ul {
-  padding-left: 1.2rem;
-  line-height: 1.8;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.35rem 1rem;
+}
+
+@media (max-width: 600px) {
+  .fundamentos {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .fundamentos > section {
+    padding: 1rem;
+  }
+
+  .fundamentos h2 {
+    font-size: 1.3rem;
+  }
+
+  .concepto-item {
+    padding: 0.95rem;
+  }
+
+  .tab-buttons button {
+    flex: 1 1 auto;
+    border-radius: 9px;
+  }
 }
