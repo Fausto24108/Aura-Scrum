@@ -12,9 +12,11 @@ export default function Inicio() {
           <h1>Bienvenido a Aura SCRUM</h1>
           <p>
             Un espacio para entender la calidad de software de forma simple:
-            conceptos clave, estándares internacionales como ISO 9126/25000 y
+            conceptos clave, estándares internacionales como ISO 9126/25000,
             las técnicas que utilizan los equipos para asegurar que un producto
-            funcione correctamente antes de llegar al usuario.
+            funcione correctamente antes de llegar al usuario y la agilidad
+            (Scrum y Kanban) como forma de entregar valor de manera temprana y
+            continua.
           </p>
           <Link to="/sdlc" className="btn-hero">
             Comenzar Sprint
@@ -35,7 +37,9 @@ export default function Inicio() {
         <h2>¿Qué vas a encontrar?</h2>
         <p>
           Aura SCRUM reúne información sobre los principales conceptos
-          relacionados con la gestión de la calidad del software. El contenido
+          relacionados con la gestión de la calidad del software y con la
+          gestión ágil de proyectos, desde el Manifiesto Ágil hasta el ciclo
+          scrum. El contenido
           está organizado para que puedas aprender los temas de manera
           progresiva y encontrar rápidamente la información que necesitás.
         </p>
@@ -82,25 +86,25 @@ export default function Inicio() {
 
         <article className="tarjeta">
           <h3>Modelos Tradicionales</h3>
-          <p>Modelo en cascada, modelo en V e incremental. Ventajas, desventajas y gráficos ilustrativos.</p>
+          <p>Gestión predictiva: modelo en cascada, modelo en V e incremental. Ventajas, desventajas y gráficos ilustrativos.</p>
           <Link to="/modelos-tradicionales" className="btn-card">Ver modelos</Link>
         </article>
 
         <article className="tarjeta">
           <h3>Metodologías Ágiles</h3>
-          <p>Scrum, Kanban y XP. Principios, roles, ceremonias, artefactos y comparativas.</p>
+          <p>Agilidad, Manifiesto Ágil (valores y principios), Scrum, Kanban y XP. Comparativas con la gestión predictiva.</p>
           <Link to="/metodologias-agiles" className="btn-card">Ver metodologías</Link>
         </article>
 
         <article className="tarjeta">
           <h3>Scrum en Profundidad</h3>
-          <p>Descripción detallada de roles, sprints, backlog, daily meetings, review y retrospective.</p>
+          <p>Roles (propietario del producto, scrum master y desarrolladores), artefactos (pila del producto, pila del sprint e incremento) y eventos: sprint, planificación, scrum diario, revisión y retrospectiva.</p>
           <Link to="/scrum" className="btn-card">Ver Scrum</Link>
         </article>
 
         <article className="tarjeta">
           <h3>Kanban</h3>
-          <p>Uso de tableros Kanban como herramienta clave de gestión visual de procesos.</p>
+          <p>Gestión visual de un flujo continuo de trabajo con un tablero, sin sprints y con límite de trabajo en curso (WIP).</p>
           <Link to="/kanban" className="btn-card">Ver Kanban</Link>
         </article>
       </section>
@@ -110,13 +114,13 @@ export default function Inicio() {
       <section className="tarjetas-grid">
         <article className="tarjeta resaltada">
           <h3>Comparador de Metodologías</h3>
-          <p>Selecciona dos o más metodologías y visualiza una tabla comparativa interactiva con sus características.</p>
+          <p>Seleccioná dos o más metodologías y visualizá una tabla comparativa interactiva con sus características.</p>
           <Link to="/comparador" className="btn-card">Ir al Comparador</Link>
         </article>
 
         <article className="tarjeta resaltada">
           <h3>Encuesta de Preferencias</h3>
-          <p>Responde preguntas sobre tu proyecto y descubre qué metodología es la más adecuada.</p>
+          <p>Respondé preguntas sobre tu proyecto y descubrí qué metodología es la más adecuada.</p>
           <Link to="/encuesta" className="btn-card">Realizar Encuesta</Link>
         </article>
       </section>
@@ -126,7 +130,7 @@ export default function Inicio() {
       <section className="tarjetas-grid">
         <article className="tarjeta">
           <h3>Glosario de Términos</h3>
-          <p>Definiciones de términos clave relacionados con la calidad y el desarrollo de software.</p>
+          <p>Definiciones de términos clave de la calidad del software y de la gestión ágil: sprint, pila del producto, incremento, WIP y más.</p>
           <Link to="/glosario" className="btn-card">Ver glosario</Link>
         </article>
 
@@ -157,6 +161,9 @@ export default function Inicio() {
           confiables, seguros, eficientes y adecuados para las necesidades de
           sus usuarios. Evaluar la calidad durante el desarrollo permite
           detectar problemas a tiempo, reducir errores y mejorar el resultado final.
+          En scrum, además, cada incremento debe estar terminado, probado y
+          operativo antes de entregarse, por lo que la calidad se construye
+          sprint a sprint.
         </p>
       </section>
     </div>

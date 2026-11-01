@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./Kanban.css";
 
 const columnas = [
-  { id: "porHacer", titulo: "Por hacer" },
-  { id: "enProgreso", titulo: "En progreso", limite: 3 },
-  { id: "hecho", titulo: "Hecho" },
+  { id: "porHacer", titulo: "Pendiente" },
+  { id: "enProgreso", titulo: "En curso", limite: 3 },
+  { id: "hecho", titulo: "Terminado" },
 ];
 
 const tareasIniciales = [
@@ -43,7 +43,7 @@ export default function Kanban() {
       const cantidad = tareas.filter((t) => t.columna === destino.id).length;
       if (cantidad >= destino.limite) {
         setAviso(
-          `"${destino.titulo}" tiene un límite de ${destino.limite} tareas. Terminá alguna antes de tomar otra.`
+          `"${destino.titulo}" tiene un WIP de ${destino.limite} tareas. Terminá alguna antes de tomar otra.`
         );
         return;
       }
@@ -61,9 +61,20 @@ export default function Kanban() {
     <main className="kanban-page">
       <h1>Kanban</h1>
       <p>
-        Kanban es un método ágil para visualizar el trabajo en un tablero. Sus ideas clave son
-        visualizar el flujo, limitar el trabajo en curso (WIP) y mejorar de forma continua.
-        Probá este tablero: agregá tareas y movelas entre columnas.
+        Kanban es una técnica popular para gestionar de forma visual un flujo continuo de
+        avance: no hay sprints ni timeboxing. Cada tarea se ubica en una columna que indica su
+        estado (pendiente, en curso y terminado), ordenadas de izquierda a derecha.
+      </p>
+      <p>
+        El WIP (work in process) es el número máximo de tareas que pueden estar a la vez en la
+        misma fase. Acá «En curso» tiene un WIP de 3: el equipo no puede trabajar en más de 3
+        tareas simultáneas, así que debe terminar lo que empezó antes de tomar más trabajo. Con
+        cada actualización, el tablero muestra el estado de las tareas y permite detectar
+        cuellos de botella a tiempo.
+      </p>
+      <p>
+        Probá este tablero: agregá tareas y movelas entre columnas. El número entre paréntesis
+        indica las tareas actuales y el límite WIP de la columna.
       </p>
 
       <form className="kanban-form" onSubmit={agregarTarea}>

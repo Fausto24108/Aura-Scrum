@@ -6,7 +6,7 @@ const miembros = [
     id: 1,
     nombre: "Ceferino Fares",
     rol: "Scrum Master",
-    detalle: "Facilita el trabajo del equipo, organiza las ceremonias y elimina impedimentos.",
+    detalle: "Se asegura de que el equipo aplique las reglas de scrum, modera las reuniones y elimina impedimentos.",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const miembros = [
     id: 5,
     nombre: "Marco Abello",
     rol: "Testing",
-    detalle: "Prueba cada historia de usuario y documenta los errores encontrados.",
+    detalle: "Prueba cada historia de usuario para comprobar que cumple la definición de hecho y documenta los errores encontrados.",
   },
 ];
 

@@ -16,31 +16,31 @@ const preguntas = [
     opciones: [
       { texto: "Fijos y bien definidos desde el inicio", puntos: { cascada: 3, v: 3, incremental: 1 } },
       { texto: "Se conocen en parte y pueden ajustarse", puntos: { incremental: 3, scrum: 2, kanban: 2 } },
-      { texto: "Cambian seguido o se descubren sobre la marcha", puntos: { scrum: 3, xp: 3, kanban: 2 } },
+      { texto: "Cambian seguido: solo se conoce una visión general y se descubre el resto sobre la marcha", puntos: { scrum: 3, xp: 3, kanban: 2 } },
     ],
   },
   {
     texto: "¿Qué tamaño tiene el equipo?",
     opciones: [
-      { texto: "Muy chico (2 a 5 personas)", puntos: { xp: 3, kanban: 2, scrum: 2 } },
-      { texto: "Mediano (6 a 10 personas)", puntos: { scrum: 3, kanban: 2, incremental: 2, v: 1 } },
-      { texto: "Grande (más de 10 personas)", puntos: { v: 3, cascada: 2, incremental: 2 } },
+      { texto: "Pequeño (3 a 5 personas)", puntos: { xp: 3, kanban: 2, scrum: 2 } },
+      { texto: "Mediano (6 a 9 personas)", puntos: { scrum: 3, kanban: 2, incremental: 2, v: 1 } },
+      { texto: "Grande (más de 9 personas)", puntos: { v: 3, cascada: 2, incremental: 2 } },
     ],
   },
   {
     texto: "¿Cuánto participa el cliente en el proyecto?",
     opciones: [
       { texto: "Solo al inicio y al final", puntos: { cascada: 3, v: 2 } },
-      { texto: "En revisiones periódicas", puntos: { scrum: 3, incremental: 3, kanban: 1 } },
-      { texto: "De forma constante", puntos: { xp: 3, scrum: 2, kanban: 2 } },
+      { texto: "En revisiones periódicas, al final de cada iteración", puntos: { scrum: 3, incremental: 3, kanban: 1 } },
+      { texto: "De forma constante, integrado en el equipo", puntos: { xp: 3, scrum: 2, kanban: 2 } },
     ],
   },
   {
     texto: "¿Cómo querés entregar el producto?",
     opciones: [
       { texto: "En una sola entrega final", puntos: { cascada: 3, v: 3 } },
-      { texto: "Por partes, cada cierto tiempo", puntos: { incremental: 3, scrum: 3 } },
-      { texto: "De forma continua", puntos: { kanban: 3, xp: 2, scrum: 1 } },
+      { texto: "Por partes, en iteraciones de duración fija", puntos: { incremental: 3, scrum: 3 } },
+      { texto: "De forma continua, sin iteraciones fijas", puntos: { kanban: 3, xp: 2, scrum: 1 } },
     ],
   },
   {
@@ -48,7 +48,7 @@ const preguntas = [
     opciones: [
       { texto: "Muy alta, con pruebas en cada fase", puntos: { v: 3, cascada: 2 } },
       { texto: "Equilibrada", puntos: { scrum: 2, incremental: 2, kanban: 2, v: 1 } },
-      { texto: "Baja, prefiero código funcionando y pruebas automáticas", puntos: { xp: 3, kanban: 2, scrum: 1 } },
+      { texto: "Baja, prefiero software que funcione y la documentación mínima necesaria", puntos: { xp: 3, kanban: 2, scrum: 1 } },
     ],
   },
 ];
@@ -105,6 +105,11 @@ export default function Encuesta() {
           {hayEmpate
             ? `Hay un empate entre ${resultados[0].nombre} y ${resultados[1].nombre}.`
             : `La metodología más adecuada para tu proyecto es ${resultados[0].nombre}.`}
+        </p>
+
+        <p>
+          Este resultado es orientativo. Según los principios ágiles, las prácticas se adaptan a
+          las características del equipo y del proyecto, y no al revés.
         </p>
 
         <ol className="encuesta-ranking">

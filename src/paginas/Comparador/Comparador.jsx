@@ -5,19 +5,19 @@ const metodologias = [
   {
     id: "cascada",
     nombre: "Cascada",
-    tipo: "Tradicional",
-    flexibilidad: "Baja: los cambios son costosos",
-    entregas: "Una sola entrega al final",
-    cliente: "Al inicio y al final",
-    documentacion: "Muy alta",
-    ideal: "Requisitos fijos y bien definidos",
+    tipo: "Tradicional (gestión predictiva, secuencial)",
+    flexibilidad: "Baja: se planifica todo al inicio y se controla el cumplimiento del plan",
+    entregas: "Una sola entrega al final del proyecto",
+    cliente: "Al inicio (requisitos) y al final",
+    documentacion: "Muy alta: requisitos y planes detallados",
+    ideal: "Entornos estables con requisitos fijos y bien definidos",
   },
   {
     id: "v",
     nombre: "Modelo en V",
-    tipo: "Tradicional",
+    tipo: "Tradicional (gestión predictiva, secuencial)",
     flexibilidad: "Baja: cada fase tiene su prueba asociada",
-    entregas: "Una sola entrega al final",
+    entregas: "Una sola entrega al final del proyecto",
     cliente: "Al inicio y al final",
     documentacion: "Muy alta",
     ideal: "Sistemas críticos que requieren pruebas rigurosas",
@@ -25,7 +25,7 @@ const metodologias = [
   {
     id: "incremental",
     nombre: "Incremental",
-    tipo: "Tradicional",
+    tipo: "Tradicional (desarrollo incremental)",
     flexibilidad: "Media: se ajusta entre incrementos",
     entregas: "Por partes, cada incremento",
     cliente: "En cada entrega",
@@ -35,22 +35,22 @@ const metodologias = [
   {
     id: "scrum",
     nombre: "Scrum",
-    tipo: "Ágil",
-    flexibilidad: "Alta: se replanifica en cada sprint",
-    entregas: "Cada sprint (1 a 4 semanas)",
-    cliente: "En cada revisión del sprint",
-    documentacion: "Media",
-    ideal: "Equipos pequeños y medianos con requisitos cambiantes",
+    tipo: "Ágil (iterativo e incremental)",
+    flexibilidad: "Alta: la pila del producto es un documento vivo que se reordena y cambia entre sprints",
+    entregas: "Un incremento por sprint (de 1 a 6 semanas, se recomienda no pasar de 4)",
+    cliente: "El propietario del producto integra el equipo y participa en la planificación y en la revisión del sprint",
+    documentacion: "Mínima indispensable: se evita la que no aporta valor al producto",
+    ideal: "Equipos autogestionados de 3 a 9 desarrolladores con requisitos cambiantes",
   },
   {
     id: "kanban",
     nombre: "Kanban",
-    tipo: "Ágil",
+    tipo: "Ágil (flujo continuo)",
     flexibilidad: "Muy alta: se puede cambiar en cualquier momento",
-    entregas: "Flujo continuo",
+    entregas: "Flujo continuo, sin sprints ni timeboxing",
     cliente: "Según se necesite",
-    documentacion: "Baja",
-    ideal: "Mantenimiento y trabajo con flujo constante de tareas",
+    documentacion: "Baja: el tablero comunica el estado del trabajo",
+    ideal: "Mantenimiento y trabajo con flujo constante de tareas, limitando el trabajo en curso (WIP)",
   },
   {
     id: "xp",
@@ -89,7 +89,11 @@ export default function Comparador() {
   return (
     <main className="comparador-page">
       <h1>Comparador de Metodologías</h1>
-      <p>Seleccioná dos o más metodologías para ver su tabla comparativa.</p>
+      <p>
+        Seleccioná dos o más metodologías para ver su tabla comparativa. Recordá la diferencia de
+        fondo: la gestión predictiva se centra en cumplir el plan inicial (plazos, costes y
+        funcionalidades), mientras que la gestión ágil valora más la respuesta al cambio.
+      </p>
 
       <fieldset className="comparador-opciones">
         <legend>Metodologías disponibles</legend>
