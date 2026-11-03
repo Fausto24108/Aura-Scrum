@@ -117,7 +117,7 @@
   width: 100%;
   text-align: left;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   color: #005f73;
   font-size: 0.95rem;
   font-weight: 700;
@@ -137,7 +137,8 @@
   color: #00a8e8;
 }
 
-.dropdown-btn.highlight {
+.dropdown-btn.highlight,
+.nav-link-direct.highlight {
   color: #00a8e8;
   background-color: #f0f9ff;
   border: 1px solid #bae6fd;

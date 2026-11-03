@@ -1,11 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logoAura from "../assets/imagenes/logo.png";
 // 1. Importamos el logo correctamente desde tu carpeta assets
 // NOTA: Si tu archivo se llama 'logo.png' y está directamente en 'assets', usa: '../../assets/logo.png'
 
 export default function Navbar() {
+  // Ruta actual, para saber en qué sección está el usuario
+  const { pathname } = useLocation();
+
+  // Qué páginas pertenecen a cada categoría del menú
+  const rutasPorCategoria = {
+    calidad: ["/fundamentos", "/tecnicas", "/herramientas"],
+    procesos: ["/sdlc", "/modelos-tradicionales", "/metodologias-agiles", "/scrum", "/kanban"],
+    interactivo: ["/comparador", "/encuesta"],
+    recursos: ["/glosario", "/faq", "/enlaces", "/ejercicios"],
+  };
+  const categoriaActual = Object.keys(rutasPorCategoria).find((cat) =>
+    rutasPorCategoria[cat].includes(pathname)
+  );
+  const claseDropdown = (cat) =>
+    `dropdown-btn ${categoriaActual === cat ? "highlight" : ""}`;
+  const claseDirecto = (ruta) =>
+    `nav-link-direct ${pathname === ruta ? "highlight" : ""}`;
+
   const [menuAbierto, setMenuAbierto] = useState(false);
   // Estado para controlar qué submenú de la hamburguesa está abierto
   const [submenuAbierto, setSubmenuAbierto] = useState(null);
@@ -51,7 +69,7 @@ export default function Navbar() {
         <ul className="nav-list">
           {/* Inicio */}
           <li>
-            <Link to="/" onClick={cerrarTodo} className="nav-link-direct">
+            <Link to="/" onClick={cerrarTodo} className={claseDirecto("/")}>
               Inicio
             </Link>
           </li>
@@ -59,7 +77,7 @@ export default function Navbar() {
           {/* Categoría: Gestión de la Calidad */}
           <li className="nav-item-dropdown">
             <button 
-              className="dropdown-btn" 
+              className={claseDropdown("calidad")}
               onClick={() => toggleSubmenu("calidad")}
             >
               Gestión de Calidad {submenuAbierto === "calidad" ? "▲" : "▼"}
@@ -74,7 +92,7 @@ export default function Navbar() {
           {/* Categoría: Procesos de Desarrollo */}
           <li className="nav-item-dropdown">
             <button 
-              className="dropdown-btn" 
+              className={claseDropdown("procesos")}
               onClick={() => toggleSubmenu("procesos")}
             >
               Procesos de Desarrollo {submenuAbierto === "procesos" ? "▲" : "▼"}
@@ -91,7 +109,7 @@ export default function Navbar() {
           {/* Categoría: Funcionalidades Interactivas */}
           <li className="nav-item-dropdown">
             <button 
-              className="dropdown-btn highlight" 
+              className={claseDropdown("interactivo")}
               onClick={() => toggleSubmenu("interactivo")}
             >
               Herramientas JS {submenuAbierto === "interactivo" ? "▲" : "▼"}
@@ -105,7 +123,7 @@ export default function Navbar() {
           {/* Categoría: Recursos y Aprendizaje */}
           <li className="nav-item-dropdown">
             <button 
-              className="dropdown-btn" 
+              className={claseDropdown("recursos")}
               onClick={() => toggleSubmenu("recursos")}
             >
               Recursos y Aprendizaje {submenuAbierto === "recursos" ? "▲" : "▼"}
@@ -120,12 +138,12 @@ export default function Navbar() {
 
           {/* Nosotros & Contacto */}
           <li>
-            <Link to="/sobre-nosotros" onClick={cerrarTodo} className="nav-link-direct">
+            <Link to="/sobre-nosotros" onClick={cerrarTodo} className={claseDirecto("/sobre-nosotros")}>
               Sobre Nosotros
             </Link>
           </li>
           <li>
-            <Link to="/contacto" onClick={cerrarTodo} className="nav-link-direct">
+            <Link to="/contacto" onClick={cerrarTodo} className={claseDirecto("/contacto")}>
               Contacto
             </Link>
           </li>
