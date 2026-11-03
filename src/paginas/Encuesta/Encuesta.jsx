@@ -16,31 +16,31 @@ const preguntas = [
     opciones: [
       { texto: "Fijos y bien definidos desde el inicio", puntos: { cascada: 3, v: 3, incremental: 1 } },
       { texto: "Se conocen en parte y pueden ajustarse", puntos: { incremental: 3, scrum: 2, kanban: 2 } },
-      { texto: "Cambian seguido: solo se conoce una visión general y se descubre el resto sobre la marcha", puntos: { scrum: 3, xp: 3, kanban: 2 } },
+      { texto: "Cambian seguido o se descubren sobre la marcha", puntos: { scrum: 3, xp: 3, kanban: 2 } },
     ],
   },
   {
     texto: "¿Qué tamaño tiene el equipo?",
     opciones: [
-      { texto: "Pequeño (3 a 5 personas)", puntos: { xp: 3, kanban: 2, scrum: 2 } },
-      { texto: "Mediano (6 a 9 personas)", puntos: { scrum: 3, kanban: 2, incremental: 2, v: 1 } },
-      { texto: "Grande (más de 9 personas)", puntos: { v: 3, cascada: 2, incremental: 2 } },
+      { texto: "Muy chico (2 a 5 personas)", puntos: { xp: 3, kanban: 2, scrum: 2 } },
+      { texto: "Mediano (6 a 10 personas)", puntos: { scrum: 3, kanban: 2, incremental: 2, v: 1 } },
+      { texto: "Grande (más de 10 personas)", puntos: { v: 3, cascada: 2, incremental: 2 } },
     ],
   },
   {
     texto: "¿Cuánto participa el cliente en el proyecto?",
     opciones: [
       { texto: "Solo al inicio y al final", puntos: { cascada: 3, v: 2 } },
-      { texto: "En revisiones periódicas, al final de cada iteración", puntos: { scrum: 3, incremental: 3, kanban: 1 } },
-      { texto: "De forma constante, integrado en el equipo", puntos: { xp: 3, scrum: 2, kanban: 2 } },
+      { texto: "En revisiones periódicas", puntos: { scrum: 3, incremental: 3, kanban: 1 } },
+      { texto: "De forma constante", puntos: { xp: 3, scrum: 2, kanban: 2 } },
     ],
   },
   {
     texto: "¿Cómo querés entregar el producto?",
     opciones: [
       { texto: "En una sola entrega final", puntos: { cascada: 3, v: 3 } },
-      { texto: "Por partes, en iteraciones de duración fija", puntos: { incremental: 3, scrum: 3 } },
-      { texto: "De forma continua, sin iteraciones fijas", puntos: { kanban: 3, xp: 2, scrum: 1 } },
+      { texto: "Por partes, cada cierto tiempo", puntos: { incremental: 3, scrum: 3 } },
+      { texto: "De forma continua", puntos: { kanban: 3, xp: 2, scrum: 1 } },
     ],
   },
   {
@@ -48,12 +48,37 @@ const preguntas = [
     opciones: [
       { texto: "Muy alta, con pruebas en cada fase", puntos: { v: 3, cascada: 2 } },
       { texto: "Equilibrada", puntos: { scrum: 2, incremental: 2, kanban: 2, v: 1 } },
-      { texto: "Baja, prefiero software que funcione y la documentación mínima necesaria", puntos: { xp: 3, kanban: 2, scrum: 1 } },
+      { texto: "Baja, prefiero código funcionando y pruebas automáticas", puntos: { xp: 3, kanban: 2, scrum: 1 } },
     ],
   },
 ];
 
-const PUNTOS_MAXIMOS = preguntas.length * 3;
+// Reparte 100 puntos en proporción al puntaje de cada metodología (método del mayor resto),
+// así los porcentajes enteros siempre suman exactamente 100.
+function repartirPorcentajes(puntajes) {
+  const suma = puntajes.reduce((a, b) => a + b, 0);
+  if (suma === 0) return puntajes.map(() => 0);
+
+  const exactos = puntajes.map((p) => (p / suma) * 100);
+  const porcentajes = exactos.map((valor) => Math.floor(valor));
+  const faltan = 100 - porcentajes.reduce((a, b) => a + b, 0);
+
+  exactos
+    .map((valor, i) => ({ i, resto: valor - Math.floor(valor) }))
+    .sort((a, b) => b.resto - a.resto)
+    .slice(0, faltan)
+    .forEach(({ i }) => {
+      porcentajes[i] += 1;
+    });
+
+  return porcentajes;
+}
+
+// "A", "A y B", "A, B y C"
+function unirNombres(nombres) {
+  if (nombres.length <= 2) return nombres.join(" y ");
+  return `${nombres.slice(0, -1).join(", ")} y ${nombres[nombres.length - 1]}`;
+}
 
 function calcularResultados(respuestas) {
   const totales = {};
@@ -68,11 +93,13 @@ function calcularResultados(respuestas) {
     }
   });
 
+  const porcentajes = repartirPorcentajes(metodologias.map((m) => totales[m.id]));
+
   return metodologias
-    .map((m) => ({
+    .map((m, i) => ({
       ...m,
       puntaje: totales[m.id],
-      porcentaje: Math.round((totales[m.id] / PUNTOS_MAXIMOS) * 100),
+      porcentaje: porcentajes[i],
     }))
     .sort((a, b) => b.puntaje - a.puntaje);
 }
@@ -96,20 +123,17 @@ export default function Encuesta() {
 
   if (terminada) {
     const resultados = calcularResultados(respuestas);
-    const hayEmpate = resultados[0].puntaje === resultados[1].puntaje;
+    // Todas las metodologías que comparten el primer puesto
+    const empatadas = resultados.filter((r) => r.puntaje === resultados[0].puntaje);
+    const hayEmpate = empatadas.length > 1;
 
     return (
       <main className="encuesta-page">
         <h1>Tu resultado</h1>
         <p className="encuesta-ganadora">
           {hayEmpate
-            ? `Hay un empate entre ${resultados[0].nombre} y ${resultados[1].nombre}.`
+            ? `Hay un empate entre ${unirNombres(empatadas.map((r) => r.nombre))}.`
             : `La metodología más adecuada para tu proyecto es ${resultados[0].nombre}.`}
-        </p>
-
-        <p>
-          Este resultado es orientativo. Según los principios ágiles, las prácticas se adaptan a
-          las características del equipo y del proyecto, y no al revés.
         </p>
 
         <ol className="encuesta-ranking">
