@@ -65,6 +65,14 @@
   accent-color: var(--cyan-strong);
 }
 
+/* Indicador claro de las metodologías elegidas */
+.comparador-opcion:has(input:checked) {
+  border-color: var(--cyan-vivid);
+  background: #d4eeff;
+  color: var(--cyan-dark);
+  box-shadow: 0 0 0 2px rgba(0, 168, 232, 0.25);
+}
+
 .comparador-page > button,
 .comparador-page button {
   border: 0;
@@ -109,18 +117,26 @@
 .comparador-tabla {
   width: 100%;
   min-width: 650px;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
 }
 
+/* Bordes en filas y columnas (grilla completa) */
 .comparador-tabla th,
 .comparador-tabla td {
   padding: 0.9rem 1rem;
-  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-blue);
+  border-bottom: 1px solid var(--border-blue);
   vertical-align: top;
 }
 
+.comparador-tabla tr > :last-child {
+  border-right: 0;
+}
+
 .comparador-tabla thead th {
+  border-bottom: 3px solid var(--cyan-vivid);
   background: #e0f2fe;
   color: var(--cyan-dark);
   font-size: 0.95rem;
@@ -132,13 +148,26 @@
   color: var(--cyan-dark);
 }
 
+/* La columna de características queda fija al hacer scroll horizontal */
+.comparador-tabla thead th:first-child,
+.comparador-tabla tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
 .comparador-tabla tbody tr:last-child th,
 .comparador-tabla tbody tr:last-child td {
   border-bottom: 0;
 }
 
+/* Filas alternadas y resaltado al pasar el cursor */
+.comparador-tabla tbody tr:nth-child(even) td {
+  background: #f9fdff;
+}
+
 .comparador-tabla tbody tr:hover td {
-  background: #f7fcff;
+  background: #e9f7ff;
 }
 
 @media (max-width: 600px) {
